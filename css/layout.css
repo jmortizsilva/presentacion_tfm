@@ -1,0 +1,284 @@
+:root {
+	--min-height-title: 15vh;
+	--height-section-img: 80vh;
+	--test-color: initial;
+	overflow: hidden;
+}
+
+rc-slide {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+rc-slide:not(.section, .subsection) {
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+rc-slide :is(h1, h2, h3, h4, h5, h6) {
+	width: 100%;
+	min-height: var(--min-height-title);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.2em 1.0em 0.2em;
+}
+
+content-box,
+bullet-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+	overflow: hidden;
+}
+
+rc-slide.cover content-box {
+	padding: 2.5%;
+}
+
+rc-slide:not(.cover, .section) content-box>img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+rc-slide:not(.cover, .section) content-box>video {
+	width: 100%;
+	height: 100%;
+	max-height: 70vh;
+	object-fit: contain;
+	object-position: center;
+}
+
+rc-slide.section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+rc-slide.section>img {
+	margin-top: 1em;
+	height: var(--height-section-img);
+}
+
+
+/* Special slides */
+
+/* Cover slide */
+rc-slide.cover:not(:has(rc-logo)) h1 {
+	margin-top: 20vh;
+}
+
+rc-logo {
+	order: -1;
+	flex: 1 0 auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 0.6rem;
+}
+
+cover-image {
+	flex: 0 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+cover-image>img {
+	flex: 1 1 50vw;
+	max-width: 70vw;
+	max-height: 50vh;
+	;
+}
+
+talk-info {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+talk-speaker {
+	flex: 1;
+}
+
+speaker-name,
+speaker-social {
+	display: block;
+}
+
+talk-event {
+	order: 1;
+	flex: 3;
+}
+
+event-name,
+event-date {
+	display: block;
+}
+
+talk-logos {
+	display: var(--show-event-logos);
+	width: auto;
+	min-width: 50%;
+	max-width: 80%;
+	max-height: 35vh;
+	align-self: center;
+}
+
+talk-logos>img {
+	width: 100%;
+}
+
+
+/* section slides */
+rc-slide.section {
+	justify-content: center;
+}
+
+rc-slide.section :is(h1, h2, h3, h4, h5, h6) {
+	flex: 0;
+}
+
+rc-slide.section>img {
+	margin-top: 0.5em;
+	height: 70vh;
+}
+
+/* text boxes */
+
+text-box {
+	max-width: 60%;
+	padding: 0.5em 0.75em;
+}
+
+video {
+	max-width: 100%;
+	background: #000;
+}
+
+text-box span {
+	display: inline-block;
+	margin-top: 1em;
+}
+
+@media (min-aspect-ratio: 1200/1024) {
+	rc-logo {
+		flex: 0 4 12vw;
+	}
+
+	rc-slide.cover content-box {
+		flex-direction: row-reverse;
+	}
+
+	cover-image {
+		min-width: 50%;
+		height: 100%;
+		align-items: flex-end;
+		padding: 1rem;
+	}
+
+	cover-image>img {
+		max-height: 50vmin;
+	}
+
+	talk-info {
+		flex: 1 1 55vw;
+		height: 100%;
+		text-align: left;
+		padding: 1rem;
+	}
+
+	talk-event {
+		flex: 0;
+	}
+
+	talk-logos {
+		align-self: flex-start;
+	}
+}
+
+
+
+/* screen-reader only */
+x,
+step,
+.visually-hidden {
+	display: inline-block !important;
+	position: absolute !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	opacity: 0;
+}
+
+
+.step--hide {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0s;
+}
+
+:not(.step--hide) {
+	opacity: 1;
+	transition: opacity 0.75s ease-out;
+}
+
+img.loading {
+	display: none !important;
+}
+
+img.load-error {
+	display: none !important;
+}
+
+
+/* utility classes to scale images if needed */
+img.scale-full {
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+img.scale-110 {
+	transform: scale(1.1);
+}
+
+img.scale-90 {
+	transform: scale(0.9);
+}
+
+img.scale-80 {
+	transform: scale(0.8);
+}
+
+img.scale-70 {
+	transform: scale(0.7);
+}
+
+img.scale-60 {
+	transform: scale(0.6);
+}
+
+img.scale-50 {
+	transform: scale(0.5);
+}
+
+img.scale-40 {
+	transform: scale(0.4);
+}
+
+img.scale-30 {
+	transform: scale(0.3);
+}
+
+img.scale-20 {
+	transform: scale(0.2);
+}

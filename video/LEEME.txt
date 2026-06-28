@@ -1,0 +1,7 @@
+Coloca aquí los vídeos finales con estos nombres para que la presentación los cargue automáticamente:
+
+1. prototipo-digital.mp4
+   Vídeo con la web y la app para iPhone mostrando: creación de una partida, unión de usuarios y visualización de un par de preguntas.
+
+2. tablero-fisico.mp4
+   Vídeo mostrando el tablero físico, las fichas y los quesitos, con detalle de relieves, formas, colores y manipulación.

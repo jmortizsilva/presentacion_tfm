@@ -1,0 +1,30 @@
+notifier-live {
+	display: block;
+	position: absolute;
+	left: 5vh;
+	bottom: 5vh;
+	width: calc(100vw-10vh);
+	padding: 0.5em 1em;
+	text-align: left;
+	font-size: 2em;
+
+	background-color: #fff;
+	color: #000;
+	border: 2px solid #777;
+	border-radius: 1em;
+	opacity: 0.8;
+
+}
+
+notifier-live:empty {
+	opacity: 0;
+	transition: opacity 2s;
+}
+
+@media (min-aspect-ratio: 1200/1024) {
+
+	notifier-live {
+		width: calc(50vw - 5vh);
+	}
+
+}

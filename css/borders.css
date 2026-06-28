@@ -1,0 +1,25 @@
+:root {
+	--border-title: 0.25em solid var(--color-title);
+	--border-thin: 0.1em solid var(--color-title);
+}
+
+.cover :is(h1, h2, h3, h4, h5, h6) {
+	border-top: var(--border-title);
+}
+
+rc-slide:not(.section, .subsection) :is(h1, h2, h3, h4, h5, h6) {
+	border-bottom: var(--border-title);
+}
+
+talk-event {
+	border-top: var(--border-thin);
+}
+
+text-box {
+	border: var(--border-thin);
+	border-radius: 0.5em;
+}
+
+.border-thin {
+	border: var(--border-thin);
+}

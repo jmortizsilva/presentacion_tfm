@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Defensa TFM: Trivial accesible, por Jose María Ortiz Silva</title>
+	<link rel="stylesheet" href="./css/styles.css">
+	<script src="./js/RCPresentation.js"></script>
+	<script src="./js/RCSection.js"></script>
+	<script src="./js/RCSlide.js"></script>
+	<script src="./js/ControllerKeyboard.js"></script>
+	<script src="./js/NotifierLive.js"></script>
+	<script src="./js/FullScreen.js"></script>
+</head>
+
+
+<body>
+	<rc-presentation start="1" color="normal">
+
+		<!-- DIAPOSITIVA 1. PORTADA -->
+		<rc-slide class="cover">
+			<h1>
+				Diseño y desarrollo de un modelo accesible para juegos de preguntas y respuestas
+				<sub-heading>Aplicación al Trivial</sub-heading>
+			</h1>
+			<content-box>
+				<cover-image>
+					<img src="./img/tablero-general.jpeg" alt="Fotografía superior del prototipo de tablero accesible de tipo Trivial, con casillas diferenciadas por color y forma, zonas en relieve y fichas sobre el tablero.">
+				</cover-image>
+				<talk-info>
+					<talk-speaker>
+						<speaker-name>Jose María Ortiz Silva</speaker-name>
+						<speaker-social>Trabajo Final de Máster</speaker-social>
+					</talk-speaker>
+					<talk-event>
+						<event-name>Máster en Accesibilidad Digital para Educación, Comunicación y Diseño</event-name>
+						<event-date>Universitat de Barcelona · Junio de 2026</event-date>
+					</talk-event>
+					<talk-logos>
+						<img src="./img/logo-ub.png" alt="Logotipo de la Universitat de Barcelona">
+					</talk-logos>
+				</talk-info>
+			</content-box>
+			<step>Notas. Buenas tardes. Voy a presentar mi Trabajo Final de Máster, titulado</step>
+<step> Diseño y desarrollo de un modelo accesible para juegos de preguntas y respuestas: aplicación al Trivial.</step>
+			<step>El objetivo de esta defensa es explicar el proceso seguido durante el trabajo:</step>
+<step> desde el análisis del problema y la revisión de la literatura</step>
+<step> hasta el diseño de la propuesta de intervención,</step>
+<step> el desarrollo del prototipo y las principales conclusiones obtenidas.</step>
+			<step>La idea principal que quiero transmitir es que este TFM no consiste únicamente en adaptar un Trivial,</step>
+<step> sino en definir un modelo de diseño accesible para juegos de preguntas y respuestas,</step>
+<step> utilizando el Trivial como caso de estudio.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 2. CONTEXTO Y PROBLEMA -->
+		<rc-slide>
+			<h2>Contexto y problema</h2>
+			<content-box>
+				<ul>
+					<li><span aria-hidden="true">Los juegos de mesa son espacios de ocio, aprendizaje informal y participación social.</span><x>El trabajo parte de un contexto muy concreto:</x></li>
+<step> los juegos de mesa como espacios de ocio, aprendizaje informal y participación social.</step>
+					<li><span aria-hidden="true">Los juegos de preguntas y respuestas dependen de texto, color, tablero, turnos y estado de partida.</span><x>Los juegos de preguntas y respuestas son especialmente interesantes porque combinan muchas capas de información:</x></li>
+<step>preguntas, respuestas, categorías,</step>
+<step> tablero, turnos, puntuación y estado de la partida.</step>
+					<li><span aria-hidden="true">Esta dependencia visual puede reducir la autonomía de las personas ciegas.</span><x>El problema es que estos elementos se han diseñado desde una lógica visual.</x></li>
+<step>Como consecuencia, la persona ciega puede depender de otra persona que lea,</step>
+<step> confirme, localice o interprete información.</step>
+				</ul>
+				<p class="step" style="margin-top: 1.5em;"><strong aria-hidden="true">Barreras principales:</strong> <span aria-hidden="true">contenido textual, color, comprensión espacial, seguimiento de la partida y dependencia de terceros.</span><x>Como barreras principales nos encontramos:</x></p>
+<step>contenido textual,</step>
+<step>uso del color,</step>
+<step>comprensión espacial,</step>
+<step>seguimiento de la partida</step>
+<step>y dependencia de terceros.</step>
+				<p class="step"><strong>Referencias:</strong> Bolesnikov et al. (2022); Léste y Farbiarz (2023); Sousa et al. (2022).</p>
+			</content-box>
+			<step>Por tanto, el problema no se limita a leer las preguntas. El reto consiste en replantear el sistema completo de interacción.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 3. OBJETIVOS -->
+		<rc-slide>
+			<h2>Objetivos del TFM</h2>
+			<content-box>
+				<h3 class="step">Objetivo general</h3>
+				<p class="step">Definir y validar un modelo accesible para juegos de preguntas y respuestas mediante un sistema híbrido físico-digital.</p>
+
+				<h3 class="step" style="margin-top: 1.5em;">Objetivos específicos</h3>
+				<ul>
+					<li>Definir requisitos de accesibilidad y usabilidad.</li>
+					<li>Diseñar un modelo aplicable al componente digital y al componente físico.</li>
+					<li>Desarrollar una prueba de concepto funcional.</li>
+				</ul>
+			</content-box>
+			<step>Al final de la presentación recuperaré estos objetivos para valorar en qué medida se han alcanzado.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 4. METODOLOGÍA -->
+		<rc-slide>
+			<h2>Metodología</h2>
+			<content-box>
+				<ul>
+					<li><span aria-hidden="true">Enfoque cualitativo y exploratorio.</span><x>El trabajo adopta un enfoque cualitativo y exploratorio:</x></li>
+<step> no pretende obtener resultados estadísticos generalizables,</step>
+<step> sino construir y fundamentar un modelo de intervención accesible.</step>
+					<li><span aria-hidden="true">Revisión bibliográfica.</span><x>El proceso parte de una revisión bibliográfica.</x></li>
+					<li><span aria-hidden="true">Análisis del contexto y de necesidades.</span><x>Continúa con el análisis del contexto y la identificación de necesidades.</x></li>
+					<li><span aria-hidden="true">Revisión del estado de la cuestión.</span><x>A continuación se revisa el estado de la cuestión.</x></li>
+					<li><span aria-hidden="true">Diseño iterativo del modelo.</span><x>Y, a partir de ahí, se diseña la propuesta de intervención de forma iterativa.</x></li>
+					<li><span aria-hidden="true">Desarrollo de una prueba de concepto.</span><x>La propuesta se materializa en una prueba de concepto funcional.</x></li>
+					<li><span aria-hidden="true">Propuesta de validación con usuarios.</span><x>Y el trabajo deja definida una metodología para su futura validación con usuarios reales.</x></li>
+				</ul>
+				<p class="step" style="margin-top: 1.5em;"><strong>Referencias:</strong> ISO 9241-210; Wobbrock y Gajos (2017).</p>
+			</content-box>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 5. NECESIDADES DETECTADAS -->
+		<rc-slide>
+			<h2>Necesidades detectadas</h2>
+			<content-box>
+				<p class="step">Del análisis realizado se identifican cinco necesidades estructurales:</p>
+				<ul>
+					<li>N1. Acceso autónomo al contenido textual</li>
+<step>Preguntas, respuestas, categorías y validación deben poder consultarse sin ayuda externa.</step>
+					<li>N2. Escalabilidad y sostenibilidad del contenido</li>
+<step>El sistema debe crecer y actualizarse sin producir grandes volúmenes de material físico.</step>
+					<li>N3. Comprensión táctil de la mecánica</li>
+<step>El tablero y los elementos físicos deben permitir construir un modelo mental del juego mediante el tacto.</step>
+
+					<li>N4. Experiencia de juego compartida</li>
+<step>Personas con y sin discapacidad visual deben participar en un mismo sistema de juego.</step>
+					<li>N5. Integración físico-digital</li>
+<step>Los componentes físico y digital deben funcionar como una arquitectura coherente.</step>
+				</ul>
+			</content-box>
+			<step>Estas necesidades no son independientes. Funcionan como un sistema y explican por qué la solución propuesta no podía ser solo física ni solo digital.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 6. MARCO TEÓRICO Y ESTADO DE LA CUESTIÓN -->
+		<rc-slide>
+			<h2>Marco teórico y estado de la cuestión</h2>
+			<content-box>
+				<div style="display: flex; flex-direction: row; justify-content: center; gap: 4em; width: 100%;">
+					<div>
+						<h3 class="step" style="font-size: 1em;"><span aria-hidden="true">Fundamentos teóricos</span><x>La propuesta se fundamenta en varios marcos conceptuales.</x></h3>
+						<ul>
+							<li><span aria-hidden="true">Derecho al ocio.</span><x>Por un lado, el derecho al ocio y a la participación social,</x></li>
+							<li><span aria-hidden="true">Diseño universal e inclusivo.</span><x>el diseño universal, el diseño inclusivo,</x></li>
+							<li><span aria-hidden="true">Diseño centrado en las personas.</span><x>el diseño centrado en las personas</x></li>
+							<li><span aria-hidden="true">Ability-Based Design.</span><x>y el Ability-Based Design.</x></li>
+							<li><span aria-hidden="true">WCAG 2.2.</span><x>Para el componente digital se toman como referencia las WCAG 2.2.</x></li>
+							<li><span aria-hidden="true">Interacción tangible.</span><x>Para el componente físico resulta clave la interacción tangible,</x></li>
+<step>porque el tablero no es solo un soporte visual adaptado, sino una interfaz física que debe poder explorarse y comprenderse mediante el tacto.</step>
+						</ul>
+					</div>
+					<div>
+						<h3 class="step" style="font-size: 1em;"><span aria-hidden="true">Soluciones existentes</span><x>El estado de la cuestión permitió identificar tres enfoques principales:</x></h3>
+<step>adaptaciones físicas, juegos específicos y soluciones híbridas.</step>
+						<ul>
+							<li><span aria-hidden="true">Adaptaciones físicas.</span><x>Las adaptaciones físicas son conocidas, pero presentan límites de escalabilidad.</x></li>
+							<li><span aria-hidden="true">Juegos específicos.</span><x>Los juegos específicos pueden ofrecer buena interacción táctil, pero corren el riesgo de generar experiencias separadas.</x></li>
+							<li><span aria-hidden="true">Soluciones híbridas.</span><x>Las soluciones híbridas son prometedoras, aunque todavía están poco consolidadas en juegos de preguntas y respuestas.</x></li>
+						</ul>
+					</div>
+				</div>
+				<p class="step" style="margin-top: 1em;"><strong>Referencias:</strong> Center for Universal Design; ISO 9241-210; W3C; Hornecker y Buur; Wobbrock y Gajos; Sousa et al.</p>
+			</content-box>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 7. PROPUESTA DE INTERVENCIÓN -->
+		<rc-slide>
+			<h2>Propuesta de intervención</h2>
+			<step>A partir del análisis anterior se plantea la propuesta de intervención.</step>
+			<step>La decisión principal consiste en diseñar una arquitectura híbrida físico-digital.</step>
+			<content-box>
+				<div style="display: flex; flex-direction: row; justify-content: center; gap: 4em; width: 100%;">
+					<div>
+						<h3 class="step" style="font-size: 1em;"><span aria-hidden="true">Componente digital</span><x>El componente digital gestiona aquello que tiene más densidad informativa y requiere actualización.</x></h3>
+						<ul>
+							<li><span aria-hidden="true">Gestión de partidas.</span><x>Gestiona las partidas y su estado,</x></li>
+							<li><span aria-hidden="true">Preguntas y respuestas.</span><x>presenta preguntas, respuestas y categorías,</x></li>
+							<li><span aria-hidden="true">Actualización del contenido.</span><x>permite actualizar el contenido y las reglas,</x></li>
+							<li><span aria-hidden="true">Compatibilidad con lectores de pantalla.</span><x>y es compatible con lectores de pantalla.</x></li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="step" style="font-size: 1em;"><span aria-hidden="true">Componente físico</span><x>El componente físico mantiene la interacción física y social del juego.</x></h3>
+						<ul>
+							<li><span aria-hidden="true">Representación espacial.</span><x>Aporta la representación espacial del tablero,</x></li>
+							<li><span aria-hidden="true">Categorías táctiles.</span><x>diferencia las categorías mediante el tacto,</x></li>
+							<li><span aria-hidden="true">Fichas y quesitos.</span><x>permite manipular fichas y obtener quesitos,</x></li>
+							<li><span aria-hidden="true">Experiencia compartida.</span><x>y mantiene la dimensión social y compartida del juego de mesa.</x></li>
+						</ul>
+					</div>
+				</div>
+				<p class="step" style="text-align: center; margin-top: 1.5em;"><span aria-hidden="true">La separación funcional entre contenido y soporte físico responde a las necesidades detectadas.</span><x>Esta distribución no es casual. Responde directamente a las necesidades identificadas durante el trabajo.</x></p>
+			</content-box>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 8. NECESIDADES Y RESPUESTA DE DISEÑO -->
+		<rc-slide>
+			<h2>Necesidades y respuesta de diseño</h2>
+			<content-box>
+				<div style="width: 100%;">
+					<div style="display: flex; background-color: #107; color: #ddd; font-weight: bold;" aria-hidden="true">
+						<span style="flex: 0 0 40%; padding: 0.4em 0.6em;">Necesidad</span>
+						<span style="flex: 1; padding: 0.4em 0.6em;">Respuesta en la propuesta</span>
+					</div>
+					<ul style="list-style: none; margin: 0; padding: 0;">
+						<li style="display: flex; border-bottom: 1px solid #ccc;">
+							<span aria-hidden="true" style="flex: 0 0 40%; padding: 0.4em 0.6em;">N1. Contenido textual</span>
+							<span aria-hidden="true" style="flex: 1; padding: 0.4em 0.6em;">Interfaz compatible con lectores de pantalla</span>
+							<x>Necesidad uno: acceso al contenido textual.</x>
+						</li>
+						<step>Respuesta: interfaz compatible con lectores de pantalla.</step>
+						<li style="display: flex; border-bottom: 1px solid #ccc;">
+							<span aria-hidden="true" style="flex: 0 0 40%; padding: 0.4em 0.6em;">N2. Escalabilidad</span>
+							<span aria-hidden="true" style="flex: 1; padding: 0.4em 0.6em;">Gestión digital de preguntas y respuestas</span>
+							<x>Necesidad dos: escalabilidad del contenido.</x>
+						</li>
+						<step>Respuesta: gestión digital de preguntas y respuestas.</step>
+						<li style="display: flex; border-bottom: 1px solid #ccc;">
+							<span aria-hidden="true" style="flex: 0 0 40%; padding: 0.4em 0.6em;">N3. Comprensión táctil</span>
+							<span aria-hidden="true" style="flex: 1; padding: 0.4em 0.6em;">Tablero, fichas y quesitos con codificación táctil</span>
+							<x>Necesidad tres: comprensión táctil de la mecánica.</x>
+						</li>
+						<step>Respuesta: tablero, fichas y quesitos con codificación táctil.</step>
+						<li style="display: flex; border-bottom: 1px solid #ccc;">
+							<span aria-hidden="true" style="flex: 0 0 40%; padding: 0.4em 0.6em;">N4. Experiencia compartida</span>
+							<span aria-hidden="true" style="flex: 1; padding: 0.4em 0.6em;">Un mismo sistema para todos los jugadores</span>
+							<x>Necesidad cuatro: experiencia de juego compartida.</x>
+						</li>
+						<step>Respuesta: un mismo sistema para todos los jugadores.</step>
+						<li style="display: flex;">
+							<span aria-hidden="true" style="flex: 0 0 40%; padding: 0.4em 0.6em;">N5. Integración</span>
+							<span aria-hidden="true" style="flex: 1; padding: 0.4em 0.6em;">Arquitectura físico-digital coherente</span>
+							<x>Necesidad cinco: integración físico-digital.</x>
+						</li>
+						<step>Respuesta: arquitectura físico-digital coherente.</step>
+					</ul>
+				</div>
+			</content-box>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 9. FUNCIONAMIENTO DEL MODELO -->
+		<rc-slide>
+			<h2>Funcionamiento del modelo híbrido</h2>
+			<content-box>
+				<ol>
+					<li><span aria-hidden="true">El jugador tira el dado y explora el tablero.</span><x>El jugador tira el dado, mueve la ficha y explora el tablero para identificar su posición.</x></li>
+					<li><span aria-hidden="true">Identifica posición y categoría.</span><x>Reconoce la categoría correspondiente a esa casilla.</x></li>
+					<li><span aria-hidden="true">El componente digital presenta la pregunta.</span><x>El componente digital presenta la pregunta y las opciones de respuesta de forma accesible.</x></li>
+					<li>El jugador responde.</li>
+					<li><span aria-hidden="true">El sistema valida el resultado.</span><x>El sistema valida el resultado y lo comunica al jugador.</x></li>
+					<li><span aria-hidden="true">El componente físico representa el progreso.</span><x>El progreso se representa en el componente físico mediante la ficha o los quesitos.</x></li>
+				</ol>
+			</content-box>
+			<step>Lo importante es que no se trata de dos juegos distintos, sino de una única experiencia distribuida entre dos componentes.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 10. PRUEBA DE CONCEPTO -->
+		<rc-slide>
+			<h2>Prueba de concepto <x>. Vídeos</x></h2>
+			<content-box>
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: flex-start; gap: 2em; width: 100%;">
+					<div style="width: 48%;">
+						<h3>Componente físico</h3>
+						<video controls preload="metadata" style="max-height: 38vh; max-width: 100%;" aria-label="Vídeo 1. Demostración del tablero físico, las fichas y los quesitos, mostrando relieves, formas, colores y manipulación.">
+							<source src="./video/tablero-fisico.mp4" type="video/mp4">
+							Tu navegador no puede reproducir este vídeo. Coloca el archivo tablero-fisico.mp4 en la carpeta video.
+						</video>
+					</div>
+					<div style="width: 48%;">
+						<h3>Componente digital</h3>
+						<video controls preload="metadata" style="max-height: 38vh; max-width: 100%;" aria-label="Vídeo 2. Demostración de la web y la aplicación para iPhone creando una partida, uniendo usuarios y respondiendo preguntas.">
+							<source src="./video/prototipo-digital.mp4" type="video/mp4">
+							Tu navegador no puede reproducir este vídeo. Coloca el archivo prototipo-digital.mp4 en la carpeta video.
+						</video>
+					</div>
+				</div>
+				<p class="step" style="margin-top: 1em; text-align: center;">El prototipo permite comprobar la viabilidad técnica del modelo.</p>
+			</content-box>
+			<step>Notas. Para comprobar la viabilidad del modelo, el trabajo incluye una prueba de concepto funcional.</step>
+			<step>Esta prueba de concepto no se plantea como producto comercial final, sino como una materialización del modelo propuesto.</step>
+			<step>El componente físico permite representar categorías, posición y progreso mediante formas, colores y relieves.</step>
+			<step>El componente digital permite gestionar partidas, presentar preguntas y responder mediante una interfaz compatible con lectores de pantalla.</step>
+
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 11. AUTORÍA DEL TRABAJO -->
+		<rc-slide>
+			<h2>Autoría del trabajo</h2>
+			<step>Quiero aclarar este aspecto porque resulta importante para interpretar correctamente el alcance del TFM.</step>
+			<content-box>
+				<div style="display: flex; flex-direction: row; justify-content: center; gap: 4em; width: 100%;">
+					<div>
+						<h3 class="step" style="font-size: 0.9em;"><span aria-hidden="true">Desarrollado por el autor</span><x>Todo el trabajo académico ha sido desarrollado por mí.</x></h3>
+						<ul>
+							<li>Investigación y revisión bibliográfica.</li>
+							<li>Análisis de necesidades.</li>
+							<li>Diseño conceptual del modelo.</li>
+							<li>Definición de requisitos.</li>
+							<li>Análisis y redacción académica.</li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="step" style="font-size: 0.9em;"><span aria-hidden="true">Apoyo técnico puntual del CTI</span><x>Para materializar la prueba de concepto se contó con apoyo técnico puntual de profesionales del CTI en tareas concretas:</x></h3>
+						<ul>
+							<li>Desarrollo del prototipo.</li>
+							<li>Fabricación de elementos físicos.</li>
+						</ul>
+					</div>
+				</div>
+			</content-box>
+			<step>Por tanto, el objeto principal de evaluación no es el desarrollo tecnológico aislado,</step>
+			<step>sino el modelo de diseño accesible y la propuesta de intervención que fundamenta ese prototipo.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 12. VALIDACIÓN, LIMITACIONES Y TRABAJO FUTURO -->
+		<rc-slide>
+			<h2>Validación, limitaciones y trabajo futuro</h2>
+			<content-box>
+				<ul>
+					<li><span aria-hidden="true">Validación pendiente con personas ciegas y personas sin discapacidad visual.</span><x>La principal limitación es que la propuesta todavía no ha sido validada con usuarios reales.</x></li>
+<step>El TFM deja definida una propuesta de evaluación con personas ciegas o con deficiencia visual grave y con personas sin discapacidad visual.</step>
+					<li><span aria-hidden="true">Evaluación prevista mediante observación de tareas, cuestionarios y entrevistas.</span><x>Esta validación combinaría observación de tareas, </x></li>
+<step>cuestionarios y entrevistas para analizar autonomía,</step>
+<step> comprensión táctil, integración físico-digital y experiencia compartida.</step>
+					<li><span aria-hidden="true">Prototipo no industrializado.</span><x>El prototipo es una prueba de concepto y no un producto industrializado.</x></li>
+					<li>Caso de estudio limitado a juegos de tipo Trivial.</li>
+					<li><span aria-hidden="true">Trabajo futuro: validación formal, iteración del diseño y aplicación a otros juegos.</span><x>Como trabajo futuro, sería necesario realizar la validación formal, iterar el diseño físico y estudiar la aplicación del modelo a otros juegos o contextos educativos.</x></li>
+				</ul>
+			</content-box>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 13. CONCLUSIONES Y COMPARACIÓN CON LA LITERATURA -->
+		<rc-slide>
+			<h2>Conclusiones</h2>
+			<content-box>
+				<h3 class="step"><span aria-hidden="true">Objetivos alcanzados</span><x>Para concluir, recupero los objetivos planteados al inicio. Objetivos alcanzados:</x></h3>
+				<ul>
+					<li><span aria-hidden="true">Modelo accesible definido y materializado.</span><x>El objetivo general se alcanza: se ha definido un modelo accesible para juegos de preguntas y respuestas y se ha materializado en una prueba de concepto.</x></li>
+					<li><span aria-hidden="true">Requisitos de accesibilidad identificados.</span><x>Los requisitos y necesidades de accesibilidad han sido identificados.</x></li>
+					<li><span aria-hidden="true">Arquitectura híbrida diseñada.</span><x>Se ha diseñado una arquitectura híbrida que integra componente digital y componente físico.</x></li>
+					<li><span aria-hidden="true">Prueba de concepto desarrollada.</span><x>Y se ha desarrollado un prototipo funcional que materializa el modelo.</x></li>
+				</ul>
+				<h3 class="step" style="margin-top: 1.2em;"><span aria-hidden="true">Aportación respecto a la literatura</span><x>Comparada con la literatura revisada, la propuesta se sitúa en una línea híbrida todavía poco consolidada. Aportación respecto a la literatura:</x></h3>
+				<ul>
+					<li><span aria-hidden="true">Separa contenido textual y soporte físico.</span><x>Frente a las adaptaciones físicas, mejora la escalabilidad separando el contenido textual del soporte físico.</x></li>
+					<li><span aria-hidden="true">Integra accesibilidad digital e interacción tangible.</span><x>Frente a los juegos específicos, integra accesibilidad digital e interacción tangible sin generar una experiencia separada.</x></li>
+					<li><span aria-hidden="true">Mantiene una experiencia compartida.</span><x>Y mantiene una experiencia compartida entre personas con y sin discapacidad visual.</x></li>
+				</ul>
+			</content-box>
+			<step>La principal aportación no es solo el prototipo, sino la forma en que el trabajo reorganiza la relación entre contenido, soporte físico e interacción social.</step>
+		</rc-slide>
+
+		<!-- DIAPOSITIVA 14. CIERRE -->
+		<rc-slide class="section">
+			<p style="font-size: 4em; margin: 0;" aria-hidden="true">🎲</p>
+			<h2>Aportaciones principales</h2>
+			<content-box>
+			<step>Notas. Para cerrar, sintetizo las principales aportaciones del trabajo.</step>
+				<ul>
+					<li><span aria-hidden="true">Modelo híbrido para juegos de preguntas y respuestas.</span><x>En primer lugar, se propone un modelo híbrido para juegos de preguntas y respuestas.</x></li>
+					<li><span aria-hidden="true">Integración de accesibilidad digital e interacción tangible.</span><x>En segundo lugar, se integra accesibilidad digital e interacción tangible dentro de una misma arquitectura.</x></li>
+					<li><span aria-hidden="true">Respuesta directa a necesidades identificadas.</span><x>En tercer lugar, la propuesta responde directamente a las necesidades identificadas durante el análisis.</x></li>
+					<li><span aria-hidden="true">Base metodológica para futuras validaciones.</span><x>Y, finalmente, el trabajo deja preparada una base metodológica para validar el modelo en futuras fases.</x></li>
+				</ul>
+			<step>La idea principal que quiero destacar es que este TFM no consiste únicamente en adaptar un Trivial, sino en definir un modelo de diseño accesible para juegos de preguntas y respuestas, utilizando el Trivial como caso de estudio.</step>
+<step>Quiero agradecer especialmente a Mónica, Juanra y Manolo, por toda su ayuda y a Mireia, mi tutora</step>
+			<step>Muchas gracias por su atención. Quedo a disposición del tribunal para responder cualquier pregunta.</step>
+
+				<p class="step" style="margin-top: 1.5em;"><strong>Muchas gracias.</strong></p>
+			</content-box>
+		</rc-slide>
+
+	</rc-presentation>
+
+	<controller-keyboard>
+		PageUp | set-step: prev
+		PageDown | set-step: next
+		. | notify-live: _repeat_
+
+		Home | set-slide: first
+		End | set-slide: last
+		Space | set-step: next
+		ArrowLeft | set-step: prev
+		ArrowRight | set-step: next
+		ArrowUp | notify-live: _time_
+		ArrowDown | notify-live: _repeat_
+		f | set-fullscreen: toggle
+
+		Shift+ArrowLeft | set-slide: prev
+		Shift+ArrowRight | set-slide: next
+		Shift+PageUp | set-slide: prev
+		Shift+PageDown | set-slide: next
+	</controller-keyboard>
+	<notifier-live hide></notifier-live>
+	<full-screen></full-screen>
+</body>
+
+</html>

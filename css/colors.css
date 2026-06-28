@@ -1,0 +1,73 @@
+:root {
+	--background-global: #fff;
+	--color-global: #333;
+	--background-section: #32a;
+	--color-section: #fff;
+
+	--background-title: #107;
+	--color-title: #ddd;
+
+	--box-shadow-global: 0.25em 0.25em 0.5em rgba(64, 64, 64, 0.5);
+	--text-shadow-global: 0.1em 0.1em 0.2em rgba(64, 64, 64, 0.5);
+
+	--show-event-logos: initial;
+}
+
+:root.high-contrast {
+	--background-global: #000;
+	--color-global: #bbb;
+	--background-section: #333;
+	--color-section: #d2d2d2;
+	--background-subsection: #555;
+	--color-subsection: #d2d2d2;
+
+	--background-title: #219;
+	--color-title: #eee;
+
+	--background-code: #333;
+	--color-code: #ccc;
+	--color-code-bold: #fff;
+
+
+	--box-shadow-global: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.6);
+	--text-shadow-global: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.6);
+
+	--show-event-logos: initial;
+}
+
+:root.inverted body {
+	filter: invert(1);
+	--show-event-logos: initial;
+}
+
+body {
+	background-color: var(--background-global);
+	color: var(--color-global);
+}
+
+rc-slide:not(.section) {
+	background-color: var(--background-global);
+	color: var(--color-global);
+}
+
+rc-slide.section {
+	background: var(--background-section);
+	color: var(--color-section);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+	text-shadow: var(--text-shadow-global);
+}
+
+rc-slide:not(.section) :is(h1, h2, h3, h4, h5, h6) {
+	background-color: var(--background-title);
+	color: var(--color-title);
+}
+
+rc-slide a {
+	color: var(--color-global);
+}
+
+:root.high-contrast :is(talk-logos) {
+	filter: invert();
+}
